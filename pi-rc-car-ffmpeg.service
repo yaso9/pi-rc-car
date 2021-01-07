@@ -1,0 +1,10 @@
+[Unit]
+Description=ffmpeg to stream live video for pi-rc-car
+
+[Service]
+ExecStartPre=/bin/sleep 5
+ExecStart=/usr/bin/ffmpeg -re -i /dev/video0 -c:v h264_omx -g 1 -f flv rtmp://127.0.0.1/camera
+Requires=nginx
+
+[Install]
+WantedBy=multi-user.target

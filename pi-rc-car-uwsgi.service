@@ -1,0 +1,10 @@
+[Unit]
+Description=uWSGI server for pi-rc-car
+
+[Service]
+WorkingDirectory=/home/pi/pi-rc-car/src
+ExecStart=/usr/bin/uwsgi --ini ../uwsgi.ini
+Requires=nginx
+
+[Install]
+WantedBy=multi-user.target
